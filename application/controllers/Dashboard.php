@@ -39,43 +39,43 @@ class Dashboard extends CI_Controller {
         }
     }
 
-    public function details($unique = NULL, $message = FALSE)
-    {
-        $data['dashboard'] = $this->dashboard_model->get_dashboard($unique);
-        $data['message'] = $message;
+    // public function details($unique = NULL, $message = FALSE)
+    // {
+    //     $data['dashboard'] = $this->dashboard_model->get_dashboard($unique);
+    //     $data['message'] = $message;
 
-        if (empty($data['dashboard']))
-        {
-                show_404();
-        }
+    //     if (empty($data['dashboard']))
+    //     {
+    //             show_404();
+    //     }
         
         
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/menu', $data);
-        $this->load->view('dashboard/details',$data);
-        $this->load->view('templates/footer');
-    }
+    //     $this->load->view('templates/header', $data);
+    //     $this->load->view('templates/menu', $data);
+    //     $this->load->view('dashboard/details',$data);
+    //     $this->load->view('templates/footer');
+    // }
 
-    public function create()
-    {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+    // public function create()
+    // {
+    //     $this->load->helper('form');
+    //     $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('CAMPO_1', 'Campo 1', 'required');
-        $this->form_validation->set_rules('CAMPO_2', 'Campo 2', 'required');
+    //     $this->form_validation->set_rules('CAMPO_1', 'Campo 1', 'required');
+    //     $this->form_validation->set_rules('CAMPO_2', 'Campo 2', 'required');
 
-        if ($this->form_validation->run() === FALSE)
-        {
-            $this->load->view('templates/header');
-            $this->load->view('dashboard/create');
-            $this->load->view('templates/footer');
+    //     if ($this->form_validation->run() === FALSE)
+    //     {
+    //         $this->load->view('templates/header');
+    //         $this->load->view('dashboard/create');
+    //         $this->load->view('templates/footer');
 
-        }
-        else
-        {
-            $id = $this->dashboard_model->set_dashboard();
-            $this->details($id, "dashboard criada com sucesso!");
-        }
-    }
+    //     }
+    //     else
+    //     {
+    //         $id = $this->dashboard_model->set_dashboard();
+    //         $this->details($id, "dashboard criada com sucesso!");
+    //     }
+    // }
 
 }

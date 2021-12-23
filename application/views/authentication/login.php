@@ -1,3 +1,15 @@
+<?php if($message): ?>
+   <div class="alert text-white bg-danger" role="alert">
+      <div class="iq-alert-icon">
+         <i class="ri-information-line"></i>
+      </div>
+      <div class="iq-alert-text"><?php echo $message; ?></div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <i class="ri-close-line"></i>
+      </button>
+   </div>
+<?php endif;?>
+
       <div class="wrapper">
       <section class="login-content">
          <div class="container h-100">
