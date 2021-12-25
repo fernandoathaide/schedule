@@ -26,7 +26,7 @@
     							</div>
     							<ul id="iq-sidebar-toggle" class="iq-menu d-flex">
     								<li class="active">
-    									<a href="../backend/index.html" class="">
+    									<a href="<?php echo base_url(); ?>dashboard" class="">
     										<span>Dashboard</span>
     									</a>
     								</li>

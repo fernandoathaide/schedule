@@ -56,3 +56,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'auth/login';
 
 $route['dashboard'] = 'dashboard/index';
+$route['event'] = 'event/index';

@@ -36,7 +36,7 @@
 							<input type="text" class="text search-input" placeholder="Search...">
 						</form>
 					</div>
-					<div class="float-sm-right"><a href="page-new-event.html"
+					<div class="float-sm-right"><a href="<?php echo base_url(); ?>event"
 							class="btn btn-primary pr-5 position-relative" style="height: 40px;">Add Event<span
 								class="event-add-btn" style="height: 40px;"><i class="ri-add-line"></i></span></a></div>
 				</div>
