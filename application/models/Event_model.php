@@ -12,5 +12,9 @@ class Event_model extends CI_Model{
 		$rs = $this->db->get("event")->result();
 		return $rs;
 	}
+	public function save_event($data){
+		$this->db->insert('event', $data);
+		return true;
+	}
 }
 

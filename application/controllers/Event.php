@@ -35,12 +35,22 @@ class Event extends CI_Controller {
 		$action = $this->input->get('action');
 		switch ($action) {
 			case 'save':
-				$eventname = $this->input->post('eventname');
-				$eventlocation = $this->input->post('eventlocation');
-				$eventdescription = $this->div->post('eventdescription');
-				$eventlink = $this->input->post('eventlink');
-				$eventtype = true;
-				echo ("<script>alert('$eventname | $eventlocation | $eventdescription | $eventlink | $eventtype ');</script>");
+				if ($this->ion_auth->logged_in()){
+					$data = array(
+						"eventname" => $this->input->post('eventname'),
+						"eventlocation" => $this->input->post('eventlocation'),
+						"eventdescription" => $this->input->post('eventdescription'),
+						"eventlink" => $this->input->post('eventlink'),
+						"eventtype" => true,
+					);
+
+					$this->event_model->save_event($data);
+					// /$this->session->set_flashdata('message_success_contrato', 'Contrato Cadastrado com Sucesso.');
+					redirect('event');
+				}else{
+					$this->session->set_flashdata('message', 'Acesso negado.');
+					redirect("login", 'refresh');
+				}
 				break;
 			default:
 				if ($this->ion_auth->logged_in()){

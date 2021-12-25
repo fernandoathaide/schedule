@@ -1,3 +1,9 @@
+<script type='text/javascript'>
+	function setEventDescription(){
+		var valorDaDiv = document.getElementsByClassName("ql-editor")[0].innerHTML;
+		document.getElementById('eventdescription').value = valorDaDiv;
+	}
+</script>
 <div class="wrapper">
     <div class="content-page">
 		<div class="container">
@@ -17,7 +23,7 @@
 								<div class="row">
 									<div class="col-lg-6 mb-4">
 										<label class="title">Event name *</label>
-										<input name="eventname" type="text" class="form-control" placeholder="Name..">
+										<input name="eventname" type="text" class="form-control" placeholder="Name.." required>
 									</div>
 									<div class="col-lg-6 mb-4">
 										<label class="title">Location</label>
@@ -25,7 +31,7 @@
 											<div class="input-prepend input-append">
 												<div class="btn-group w-100">
 													<label class="mb-0 w-100 form-control dropdown-toggle" data-toggle="dropdown">
-													<input name="eventlocation" class="dropdown-toggle search-query text search-input" type="text"  placeholder="Add a Location"><span class="search-replace"></span>
+													<input name="eventlocation" class="dropdown-toggle search-query text search-input" type="text"  placeholder="Add a Location" required><span class="search-replace"></span>
 													<span class="caret"><!--icon--></span>
 													</label>
 													<ul class="dropdown-menu w-100 border-none">
@@ -81,18 +87,19 @@
 									</div>                            
 									<div class="col-lg-12 mb-4">
 										<label class="title mb-3">Dscription/Instructions</label>
-										<div name="eventdescription" id="editor" style="height: 150px !important;">
+										<div id="editor" style="height: 150px !important;">
 										</div>  
+										<input type="hidden" id="eventdescription" name="eventdescription" >
 									</div>
 									<div class="col-lg-12 mb-4">
 										<label class="title">Event link *</label>
-										<input name="eventlink" type="text" class="form-control" value="calendly.com/rickoshea1234/">
+										<input name="eventlink" type="text" class="form-control" value="calendly.com/rickoshea1234/" required>
 									</div>
 									<div class="col-lg-12 mt-4">
 										<div class="d-flex flex-wrap align-items-ceter justify-content-center">
 											<div class="btn btn-primary mr-4"><a href="<?php echo base_url(); ?>event" class="cancel-btn">Cancel</a></div>
 											<!-- <div class="btn btn-outline-primary"><a href="<?php //echo base_url(); ?>event/addevent" class="save-btn">Save</a></div> -->
-											<button class="btn btn-outline-primary">Save</button>
+											<button id="buttonSave" class="btn btn-outline-primary" onclick="javascript: setEventDescription()">Save</button>
 										</div>
 									</div> 
 								</div>
