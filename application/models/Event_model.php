@@ -8,7 +8,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Event_model extends CI_Model{
 	public function listar_todos(){
-		$this->db->select("id,eventname,eventlocation,eventdescription,eventlink,eventtype");
+		$this->db->select("id,eventname,eventlocation,eventdescription,eventlink,eventtype,startdate,enddate");
 		$rs = $this->db->get("event")->result();
 		return $rs;
 	}

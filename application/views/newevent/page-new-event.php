@@ -19,7 +19,7 @@
 							<h5 class="mb-2">One-on-One</h5>                             
 							<p class="mb-4">Let an invitee pick a time to meet with you.</p>
 							<div class="pt-2">
-								<a href="<?php echo base_url(); ?>event/addevent" class="btn btn-info mr-3 px-4">Create</a>
+								<a href="<?php echo base_url(); ?>event/addevent?t=one" class="btn btn-info mr-3 px-4">Create</a>
 							</div>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 							<h5 class="mb-2">Group</h5>                             
 							<p class="mb-4">Let an invitee pick a time to meet with you.</p>
 							<div class="pt-2">
-								<a href="<?php echo base_url(); ?>event/addevent" class="btn btn-danger mr-3 px-4">Create</a>
+								<a href="<?php echo base_url(); ?>event/addevent?t=group" class="btn btn-danger mr-3 px-4">Create</a>
 							</div>
 						</div>
 					</div>

@@ -2,6 +2,17 @@
 	function setEventDescription(){
 		var valorDaDiv = document.getElementsByClassName("ql-editor")[0].innerHTML;
 		document.getElementById('eventdescription').value = valorDaDiv;
+		
+		$("form").submit(function(event) {
+			if ($("#startdate").val() < $("#enddate").val()) {
+				$("span").text("Validated...").show();
+				return true;
+			}else {
+				$("#validdate").text("Date Not valid!").show().fadeOut(5000);
+				event.preventDefault();
+				return false;
+			}
+		});
 	}
 </script>
 <div class="wrapper">
@@ -12,7 +23,13 @@
 					<div class="py-4 border-bottom">
 						<div class="float-left"><a href="<?php echo base_url(); ?>event" class="badge bg-white back-arrow"><i class="las la-angle-left"></i></a></div>
 						<div class="form-title text-center">
-							<h3>Add One-on-One Event Type</h3>
+						<?php if(isset($eventtype)){
+							if($eventtype == 'one'){
+								echo ('<h3>Add One-on-One Event Type</h3>');
+							} else{
+								echo ('<h3>Add Group Event Type</h3>');
+							}
+						}?>	
 						</div>
 					</div>
 				</div>
@@ -95,10 +112,21 @@
 										<label class="title">Event link *</label>
 										<input name="eventlink" type="text" class="form-control" value="calendly.com/rickoshea1234/" required>
 									</div>
+									<div class="col-lg-6 mb-4">
+										<label class="title">Start Date *</label>
+										<input name="startdate" type="date" id="startdate" class="form-control" required>
+									</div>
+									<div class="col-lg-6 mb-4">
+										<label class="title">End Date *</label>
+										<input name="enddate" type="date" id="enddate" class="form-control" required>
+									</div>
+									<div class="col-lg-12 mb-4">
+										<span id="validdate" style="color:red;font-size:18px;"></span>
+									</div>
 									<div class="col-lg-12 mt-4">
 										<div class="d-flex flex-wrap align-items-ceter justify-content-center">
 											<div class="btn btn-primary mr-4"><a href="<?php echo base_url(); ?>event" class="cancel-btn">Cancel</a></div>
-											<!-- <div class="btn btn-outline-primary"><a href="<?php //echo base_url(); ?>event/addevent" class="save-btn">Save</a></div> -->
+											<input type="hidden" id="eventtype" name="eventtype" value="<?php echo(isset($eventtype)) ? $eventtype : '' ; ?>" >
 											<button id="buttonSave" class="btn btn-outline-primary" onclick="javascript: setEventDescription()">Save</button>
 										</div>
 									</div> 

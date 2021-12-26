@@ -35,7 +35,15 @@ class Migration_create_event extends CI_Migration {
             'eventtype' => array(
                 'type' => 'BOOLEAN',
                 'default' => FALSE,
-            )
+			),
+			'startdate' => array(
+                'type' => 'DATE',
+                'null'  => FALSE,
+            ),
+            'enddate' => array(
+                'type' => 'DATE',
+                'null'  => FALSE,
+            ),
         ));
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->create_table('event');
